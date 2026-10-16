@@ -1,28 +1,13 @@
-// Application state and data types
-
-// Represents a group member
+// Represents a group member with registration order used for payout rotation
 export interface Member {
     id: string;
     name: string;
     joinOrder: number;
 }
 
-// Contribution records 
-export interface Contribution {
-    memberId: string;
-    week: number;
-    amountPaid: number;
-}
-
-// Payout records
-export interface Payout {
-    memberId: string;
-    week: number;
-    amount: number;
-}
-
-// Savings group state
+// Stores the complete state and history of a Susu savings group
 export interface SavingsGroup {
+    name: string;
     weeklyContribution: number;
     currentWeek: number;
     members: Member[];
@@ -31,3 +16,16 @@ export interface SavingsGroup {
     nextPayoutIndex: number;
 }
 
+// Tracks the cumulative amount paid by a member for a given week
+export interface Contribution {
+    memberId: string;
+    week: number;
+    amountPaid: number;
+}
+
+// Records a completed pot disbursement to a member for a closed week
+export interface Payout {
+    memberId: string;
+    week: number;
+    amount: number;
+}

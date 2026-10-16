@@ -18,7 +18,7 @@ export interface Contribution {
 export interface Payout {
     memberId: string;
     week: number;
-    amountPaid: number;
+    amount: number;
 }
 
 // Savings group state
